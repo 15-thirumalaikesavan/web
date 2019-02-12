@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="testclass"
+      id="test"
+      style="width:200px;background-color:darkseagreen"
+      title="myDiv"
+      whatever="this is cool!"
+      [style.width.px]="1"
+      onclick="console.log('!!!!!!!!clicked')"
+    >
+      C l i c k H e r e T o F i n d S o m e M a g i c !
+    </div>
+    <script>
+      document
+        .getElementsByClassName('testclass')[0]
+        .addEventListener('click', function(event) {
+          console.log('##### div clicked');
+        });
+    </script>
+    <script>
+      document
+        .getElementById('test')
+        .addEventListener('click', function(event) {
+          console.log('div clicked using id.');
+          console.log(event.target.style.width);
+          console.log(event.target.title);
+          console.log(event.target.whatever);
+          console.log(event.target.id);
+          console.log(document.getElementById('test').getAttribute('whatever'));
+          console.log(
+            document.getElementById('test').getAttribute('[style.width.px]')
+          );
+          console.log(
+            document.getElementById('test').getAttribute('class')
+          );
+          console.log(
+            document.getElementById('test').getAttribute('onclick')
+          );
+          console.log(
+            document.getElementById('test').getAttribute('click')
+          );
+          console.log(event.target.onclick);
+          console.log(event.target.click);
+        });
+    </script>
+<button onclick="mimicAngular()">Mimic Angular</button>
+    <script>
+      function mimicAngular() {
+        var myDiv = document.getElementById('test');
+        myDiv.setAttribute(
+          'style',
+          'width:' +
+            document.getElementById('test').getAttribute('[style.width.px]') + "px");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      
+    <script>
+      $(document).ready(function() {
+        $('#myTestDiv').click(function() {
+          var attrs = document.getElementById('myTestDiv').attributes;
+          $.each(attrs, function(i, elem) {
+            $('#attrs').html(
+              $('#attrs').html() +
+                '<br><b>' +
+                elem.name +
+                '</b>:<i>' +
+                elem.value +
+                '</i>'
+            );
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+        <div id="myTestDiv" ekind="div" etype="text" name="stack">
+                Display Attributes
+                </div>
+                <br>
+                <div id="attrs">Attributes are <div>
+  </body>
+</html>

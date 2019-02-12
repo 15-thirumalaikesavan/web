@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>A function is triggered when the user is pressing a key in the input field.</p>
+
+<input type="text" class="test" onkeydown="myFunction()" mouseup="console.log('mouseup')">
+
+<script>
+function myFunction() {
+  console.log("keydown"); 
+}
+</script>
+ <script>
+    document
+      .getElementsByClassName('test')[0]
+      .addEventListener('mousedown', function(event) {
+        console.log('mouse down');
+      });
+  </script>
+</body>
+</html>
