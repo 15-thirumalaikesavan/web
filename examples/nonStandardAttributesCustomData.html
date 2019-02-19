@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- mark the div to show "name" here -->
+<div show-info="name"></div>
+<!-- and age here -->
+<div show-info="age"></div>
+
+<script>
+  // the code finds an element with the mark and shows what's requested
+  let user = {
+    name: "Pete",
+    age: 25
+  };
+
+  for(let div of document.querySelectorAll('[show-info]')) {
+    // insert the corresponding info into the field
+    let field = div.getAttribute('show-info');
+    div.innerHTML = user[field]; // Pete, then age
+  }
+</script>
+</body>
+</html>
